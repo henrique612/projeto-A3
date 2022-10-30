@@ -1,0 +1,8 @@
+<mat-toolbar class="navMenu">
+    <h2 id="name">L | LabClass</h2>
+    <mat-card-actions  class="accessOptions">
+        <div mat-card-avatar id="avatar-user" onclick="console.log('Batata')"></div>
+        <button *ngIf="!isLogged" id='registration'  mat-stroked-button color="primary" >Cadastro</button>
+        <button *ngIf="!isLogged" mat-flat-button >Login</button>
+    </mat-card-actions>
+</mat-toolbar>

@@ -1,0 +1,24 @@
+.navMenu {
+    background-color: aquamarine;
+    height: 10%;
+}
+.navMenu #name {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: xxx-large;
+    color: rgb(1, 37, 105);
+}
+.accessOptions {
+    margin-top: 1%;
+    height: 70%;
+    width: 95%;
+}
+.accessOptions button {
+    float: right
+}
+.accessOptions #avatar-user {
+    float: right;
+    height: 100%;
+    width: 6%;
+    background-image: url(https://i1.sndcdn.com/artworks-000347014407-cs6oui-t240x240.jpg);
+    background-size: cover;
+}
