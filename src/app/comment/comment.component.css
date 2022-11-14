@@ -1,0 +1,10 @@
+mat-card {
+    background-color: blueviolet;
+    margin: 3%;
+}
+mat-card-content {
+    margin-top: 2%;
+}
+mat-card-actions {
+    margin: 2%;
+}

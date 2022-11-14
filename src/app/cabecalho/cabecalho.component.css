@@ -1,24 +1,34 @@
 .navMenu {
     background-color: aquamarine;
-    height: 10%;
+    height: fit-content;
 }
 .navMenu #name {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: xxx-large;
+    font-size: 100%;
     color: rgb(1, 37, 105);
+    width: fit-content;
 }
-.accessOptions {
-    margin-top: 1%;
-    height: 70%;
-    width: 95%;
+.navMenuActions #accessButton {
+    width: 45%;
 }
-.accessOptions button {
-    float: right
+#searchBar {
+    margin-left: auto;
+    width: 40%;
+    height: max-content;
 }
-.accessOptions #avatar-user {
-    float: right;
-    height: 100%;
-    width: 6%;
+#avatar-user-image {
+    margin-left: auto;
+    height: 50px;
+    width: 50px;
     background-image: url(https://i1.sndcdn.com/artworks-000347014407-cs6oui-t240x240.jpg);
     background-size: cover;
+    border-radius: 50%;
+    background-color: aqua;
+}
+.navMenuActions {
+    margin-left: auto;
+    float: left;
+    margin-top: 1%;
+    width: fit-content;
+    height: fit-content;
 }

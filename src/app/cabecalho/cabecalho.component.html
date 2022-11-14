@@ -1,8 +1,8 @@
 <mat-toolbar class="navMenu">
-    <h2 id="name">L | LabClass</h2>
-    <mat-card-actions  class="accessOptions">
-        <div mat-card-avatar id="avatar-user" onclick="console.log('Batata')"></div>
-        <button *ngIf="!isLogged" id='registration'  mat-stroked-button color="primary" >Cadastro</button>
-        <button *ngIf="!isLogged" mat-flat-button >Login</button>
+    <h2 id="name" routerLink="/home">L | LabClass</h2>
+    <mat-card-actions class="navMenuActions">
+        <button *ngIf="!this.isLogged" id='accessButton'  mat-flat-button routerLink="/login" >Login</button>
+        <button *ngIf="!this.isLogged" id='accessButton'  mat-stroked-button color="primary" routerLink="/cadastro">Cadastro</button>
+        <img  *ngIf="this.isLogged" id="avatar-user-image" (click)="this.isLogged = false">
     </mat-card-actions>
 </mat-toolbar>

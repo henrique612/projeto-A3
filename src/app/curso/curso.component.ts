@@ -28,6 +28,7 @@ export class CursoComponent implements OnInit {
   constructor() {
     this.tempData = [
       {   
+          courseKey: 'bgrrengiondnsio',
           "autor": "Michael Reeves",
           "image": "https://hackaday.com/wp-content/uploads/2020/04/surg-robot-feat.png?w=800",
           "avatarAutor": "https://i1.sndcdn.com/artworks-000347014407-cs6oui-t240x240.jpg",
@@ -37,6 +38,7 @@ export class CursoComponent implements OnInit {
           "courseId":  "d41d8cd98f00b204e9800998ecf8427e"
       },
       {   
+          courseKey: 'bgrrengiondnsio',
           "autor": "Michael Reeves",
           "image": "https://hackaday.com/wp-content/uploads/2020/04/surg-robot-feat.png?w=800",
           "avatarAutor": "https://i1.sndcdn.com/artworks-000347014407-cs6oui-t240x240.jpg",
@@ -46,6 +48,7 @@ export class CursoComponent implements OnInit {
           "courseId":  "d41d8cd98f00b204e9800998ecf8427e"
       },
       {   
+          courseKey: 'bgrrengiondnsio',
           "autor": "Michael Reeves",
           "image": "https://hackaday.com/wp-content/uploads/2020/04/surg-robot-feat.png?w=800",
           "avatarAutor": "https://i1.sndcdn.com/artworks-000347014407-cs6oui-t240x240.jpg",
@@ -55,6 +58,7 @@ export class CursoComponent implements OnInit {
           "courseId":  "d41d8cd98f00b204e9800998ecf8427e"
       },
       {   
+          courseKey: 'bgrrengiondnsio',
           "autor": "Michael Reeves",
           "image": "https://hackaday.com/wp-content/uploads/2020/04/surg-robot-feat.png?w=800",
           "avatarAutor": "https://i1.sndcdn.com/artworks-000347014407-cs6oui-t240x240.jpg",
@@ -64,6 +68,7 @@ export class CursoComponent implements OnInit {
           "courseId":  "d41d8cd98f00b204e9800998ecf8427e"
       },
       {   
+          courseKey: 'bgrrengiondnsio',
           "autor": "Michael Reeves",
           "image": "https://hackaday.com/wp-content/uploads/2020/04/surg-robot-feat.png?w=800",
           "avatarAutor": "https://i1.sndcdn.com/artworks-000347014407-cs6oui-t240x240.jpg",
@@ -73,6 +78,7 @@ export class CursoComponent implements OnInit {
           "courseId":  "d41d8cd98f00b204e9800998ecf8427e"
       },
       {   
+          courseKey: 'bgrrengiondnsio',
           "autor": "Michael Reeves",
           "image": "https://hackaday.com/wp-content/uploads/2020/04/surg-robot-feat.png?w=800",
           "avatarAutor": "https://i1.sndcdn.com/artworks-000347014407-cs6oui-t240x240.jpg",
@@ -82,6 +88,7 @@ export class CursoComponent implements OnInit {
           "courseId":  "d41d8cd98f00b204e9800998ecf8427e"
       },
       {   
+          courseKey: 'bgrrengiondnsio',
           "autor": "Michael Reeves",
           "image": "https://hackaday.com/wp-content/uploads/2020/04/surg-robot-feat.png?w=800",
           "avatarAutor": "https://i1.sndcdn.com/artworks-000347014407-cs6oui-t240x240.jpg",
@@ -91,6 +98,7 @@ export class CursoComponent implements OnInit {
           "courseId":  "d41d8cd98f00b204e9800998ecf8427e"
       },
       {   
+          courseKey: 'bgrrengiondnsio',
           "autor": "Michael Reeves",
           "image": "https://hackaday.com/wp-content/uploads/2020/04/surg-robot-feat.png?w=800",
           "avatarAutor": "https://i1.sndcdn.com/artworks-000347014407-cs6oui-t240x240.jpg",

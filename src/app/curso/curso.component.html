@@ -11,7 +11,7 @@
                 <mat-card-title>{{item.Title}}</mat-card-title>
                 <mat-card-subtitle>{{item.specialization}}</mat-card-subtitle>
             </mat-card-header>
-            <img mat-card-image [src]="item.image">
+            <img mat-card-image [src]="item.image" routerLink="/aula" routerLinkActive="active" ariaCurrentWhenActive="page">
             <mat-card-content>
                 <p>{{item.description}}</p>
             </mat-card-content>
@@ -21,3 +21,4 @@
         <mat-icon>navigate_next</mat-icon>
       </button>
 </ngu-carousel>
+

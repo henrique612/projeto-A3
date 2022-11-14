@@ -1,0 +1,29 @@
+header {
+    margin: 2%
+}
+main{
+    margin: 2%;
+    height: 60%;
+}
+.player-curso {
+    width: 61%;
+    float: left;
+}
+
+.player-curso video{
+    width: 100%;
+}
+
+.course-itens {
+    height: 100%;
+    width: 33%;
+    float: right;
+}
+
+.summary {
+    width: 57%;
+    margin-left: 2%;
+    border:1px solid blueviolet;
+    background-color: white;
+    color: black;
+}

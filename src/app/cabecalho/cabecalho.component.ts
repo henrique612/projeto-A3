@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cabecalho.component.css']
 })
 export class CabecalhoComponent implements OnInit {
-  isLogged = true
+  isLogged: Boolean = false;
   constructor() { }
 
   ngOnInit(): void {
   }
-  
+  login(): void {
+    this.isLogged = true
+  }
 }
