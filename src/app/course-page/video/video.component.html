@@ -1,6 +1,6 @@
 <app-cabecalho></app-cabecalho>
 <header>
-    <h1>Nome do curso</h1>
+    <h1>Module Name</h1>
     <h2>Como procrastinar</h2>
 </header>
 <main>
@@ -9,11 +9,18 @@
         <source src="https://ia902908.us.archive.org/25/items/o.senhor.dos.aneis.1978.1080p.bluray.h264.aac.2.05.1.dualricksz/O.Senhor.dos.Aneis.1978.1080p.BluRay.H264.AAC.2.0-5.1.DUAL-RICKSZ.mp4" type="video/mp4">
     </video>
 </vg-player>
-<mat-accordion>
-<mat-expansion-panel class="course-itens">
-    <mat-expansion-panel-header>Módulos</mat-expansion-panel-header>
-</mat-expansion-panel>
+<mat-accordion >
+    <mat-expansion-panel *ngFor="let module of modules">
+        <mat-expansion-panel-header>
+            <mat-panel-title>{{module.name}}</mat-panel-title>
+        </mat-expansion-panel-header>
+            <span *ngFor="let lesson of module.lessons">
+            <p id="lesson" routerLink="./aula" [state]="{currentLesson: lesson, modules: modules}" routerLinkActive="active" ariaCurrentWhenActive="page">{{lesson.title}}</p>
+            <mat-divider></mat-divider>
+            </span>
+        </mat-expansion-panel>
 </mat-accordion>
+
 </main>
 <mat-card class="summary">
     <mat-card-title>
@@ -22,13 +29,4 @@
     <mat-card-subtitle>
         <h1></h1>
     </mat-card-subtitle>
-    <mat-card-content>
-        <app-comment></app-comment>        
-        <app-comment></app-comment>        
-        <app-comment></app-comment>        
-        <app-comment></app-comment>        
-        <app-comment></app-comment>        
-        <app-comment></app-comment>        
-        <app-comment></app-comment>        
-    </mat-card-content>
 </mat-card>

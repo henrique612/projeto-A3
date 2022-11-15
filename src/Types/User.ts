@@ -1,8 +1,9 @@
 export interface UserType {
-    name: string,
-    password: string,
-    password2: string,
-    crm: string,
-    email: string,
-    birthDate: string
+    id: string;
+    name:  string;
+    email:  string;
+    age:  number;
+    gender:  string;
+    crm:  string;
+    password:  string;
 }
