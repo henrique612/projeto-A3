@@ -14,13 +14,15 @@ export class HomeComponent implements OnInit {
       private commService: CommunicationService,
       private dataService: dataService
       ) {
-      this.commService.requestCourses().subscribe( 
-        (data : Array<CourseType>) =>{ 
-          this.setCourseList(data)
-        }
-        )
+        this.callCourses()
    }
-
+   callCourses() {
+   this.commService.requestCourses().subscribe( 
+    (data : Array<CourseType>) =>{ 
+      this.setCourseList(data)
+    }
+    )
+  }
   setCourseList(courses: Array<CourseType>): void {
     this.dataService.setCourseList(courses)
   }

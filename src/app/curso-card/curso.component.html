@@ -11,7 +11,7 @@
                 <mat-card-title>{{item.Title}}</mat-card-title>
                 <mat-card-subtitle>{{item.specialization}}</mat-card-subtitle>
             </mat-card-header>
-            <img mat-card-image [src]="item.image" routerLink="/curso" [state]="item" routerLinkActive="active" ariaCurrentWhenActive="page">
+            <img mat-card-image [src]="item.image" routerLink="/curso" (click)="saveCurrentCourse(item)" [state]="item"  [queryParams]="{'courseId': item.courseKey}" routerLinkActive="active" ariaCurrentWhenActive="page">
             <mat-card-content>
                 <p>{{item.description}}</p>
             </mat-card-content>

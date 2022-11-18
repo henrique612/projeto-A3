@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseType, ModuleType } from 'src/Types/Course';
 import {Location} from "@angular/common"
+import { dataService } from 'src/Services/data.service';
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
+import { CommunicationService } from 'src/Services/communication.sevices';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-course-home',
@@ -8,97 +13,40 @@ import {Location} from "@angular/common"
   styleUrls: ['./course-home.component.css']
 })
 export class CourseHomeComponent implements OnInit {
+  courseKey: string = '';
+  course = {} as CourseType;
+  modules: Array<ModuleType> = [];
 
-  public course: CourseType;
-  public modules: Array<ModuleType>;
-
-  constructor(private route: Location) {
-    //this.course = this.route.getState() as CourseType
-    this.course = {   
-      courseKey: 'bgrrengiondnsio',
-      author: "Michael Reeves",
-      image: "https://hackaday.com/wp-content/uploads/2020/04/surg-robot-feat.png?w=800",
-      avatarAuthor: "https://i1.sndcdn.com/artworks-000347014407-cs6oui-t240x240.jpg",
-      description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi in magnam fuga vero voluptatem iste optio! Quos rerum doloremque nemo veniam. Nostrum unde veniam at quos autem cum earum minima.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi in magnam fuga vero voluptatem iste optio! Quos rerum doloremque nemo veniam. Nostrum unde veniam at quos autem cum earum minima.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi in magnam fuga vero voluptatem iste optio! Quos rerum doloremque nemo veniam. Nostrum unde veniam at quos autem cum earum minima.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi in magnam fuga vero voluptatem iste optio! Quos rerum doloremque nemo veniam. Nostrum unde veniam at quos autem cum earum minima.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi in magnam fuga vero voluptatem iste optio! Quos rerum doloremque nemo veniam. Nostrum unde veniam at quos autem cum earum minima.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi in magnam fuga vero voluptatem iste optio! Quos rerum doloremque nemo veniam. Nostrum unde veniam at quos autem cum earum minima.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi in magnam fuga vero voluptatem iste optio! Quos rerum doloremque nemo veniam. Nostrum unde veniam at quos autem cum earum minima.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi in magnam fuga vero voluptatem iste optio! Quos rerum doloremque nemo veniam. Nostrum unde veniam at quos autem cum earum minima.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi in magnam fuga vero voluptatem iste optio! Quos rerum doloremque nemo veniam. Nostrum unde veniam at quos autem cum earum minima.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi in magnam fuga vero voluptatem iste optio! Quos rerum doloremque nemo veniam. Nostrum unde veniam at quos autem cum earum minima.",
-      specialization: ["surgery"],
-      Title: "How To Make a Surgery Robot",
-    }
-    this.modules = [{
-      courseKey: 'geagreaeg15',
-          moduleKey: '2151651651516',
-          name: 'Modulo1',
-      'lessons': [{
-        lessonKey: 'fafewa51515',
-            moduleKey: '2151651651516',
-            title: 'Aula1',
-            commentKey: '15165egresgois',
-            videosource: 'https://ia902908.us.archive.org/25/items/o.senhor.dos.aneis.1978.1080p.bluray.h264.aac.2.05.1.dualricksz/O.Senhor.dos.Aneis.1978.1080p.BluRay.H264.AAC.2.0-5.1.DUAL-RICKSZ.mp4'
-      },
-      {
-        lessonKey: 'fae1515agewa',
-            moduleKey: '2151651651516',
-            title: 'Aula2',
-            commentKey: '15165egresgois',
-            videosource: 'https://ia902908.us.archive.org/25/items/o.senhor.dos.aneis.1978.1080p.bluray.h264.aac.2.05.1.dualricksz/O.Senhor.dos.Aneis.1978.1080p.BluRay.H264.AAC.2.0-5.1.DUAL-RICKSZ.mp4'
-      },{
-        lessonKey: '151f5aefaewf515',
-            moduleKey: '2151651651516',
-            title: 'Aula3',
-            commentKey: '15165egresgois',
-            videosource: 'https://ia902908.us.archive.org/25/items/o.senhor.dos.aneis.1978.1080p.bluray.h264.aac.2.05.1.dualricksz/O.Senhor.dos.Aneis.1978.1080p.BluRay.H264.AAC.2.0-5.1.DUAL-RICKSZ.mp4'
-      }]
-    },{
-      courseKey: 'geagreaeg15',
-          moduleKey: '2151651651516',
-          name: 'Modulo1',
-      'lessons': [{
-        lessonKey: 'fafewa51515',
-            moduleKey: '2151651651516',
-            title: 'Aula1',
-            commentKey: '15165egresgois',
-            videosource: 'https://ia902908.us.archive.org/25/items/o.senhor.dos.aneis.1978.1080p.bluray.h264.aac.2.05.1.dualricksz/O.Senhor.dos.Aneis.1978.1080p.BluRay.H264.AAC.2.0-5.1.DUAL-RICKSZ.mp4'
-      },
-      {
-        lessonKey: 'fae1515agewa',
-            moduleKey: '2151651651516',
-            title: 'Aula2',
-            commentKey: '15165egresgois',
-            videosource: 'https://ia902908.us.archive.org/25/items/o.senhor.dos.aneis.1978.1080p.bluray.h264.aac.2.05.1.dualricksz/O.Senhor.dos.Aneis.1978.1080p.BluRay.H264.AAC.2.0-5.1.DUAL-RICKSZ.mp4'
-      },{
-        lessonKey: '151f5aefaewf515',
-            moduleKey: '2151651651516',
-            title: 'Aula3',
-            commentKey: '15165egresgois',
-            videosource: 'https://ia902908.us.archive.org/25/items/o.senhor.dos.aneis.1978.1080p.bluray.h264.aac.2.05.1.dualricksz/O.Senhor.dos.Aneis.1978.1080p.BluRay.H264.AAC.2.0-5.1.DUAL-RICKSZ.mp4'
-      }]
-    },{
-      courseKey: 'geagreaeg15',
-          moduleKey: '2151651651516',
-          name: 'Modulo1',
-      'lessons': [{
-            lessonKey: 'fafewa51515',
-            moduleKey: '2151651651516',
-            title: 'Aula1',
-            commentKey: '15165egresgois',
-            videosource: 'https://ia902908.us.archive.org/25/items/o.senhor.dos.aneis.1978.1080p.bluray.h264.aac.2.05.1.dualricksz/O.Senhor.dos.Aneis.1978.1080p.BluRay.H264.AAC.2.0-5.1.DUAL-RICKSZ.mp4'
-      },
-      {
-          lessonKey: 'fae1515agewa',
-            moduleKey: '2151651651516',
-            title: 'Aula2',
-            commentKey: '15165egresgois',
-            videosource: 'https://ia902908.us.archive.org/25/items/o.senhor.dos.aneis.1978.1080p.bluray.h264.aac.2.05.1.dualricksz/O.Senhor.dos.Aneis.1978.1080p.BluRay.H264.AAC.2.0-5.1.DUAL-RICKSZ.mp4'
-      },{
-        lessonKey: '151f5aefaewf515',
-            moduleKey: '2151651651516',
-            title: 'Aula3',
-            commentKey: '15165egresgois',
-            videosource: 'https://ia902908.us.archive.org/25/items/o.senhor.dos.aneis.1978.1080p.bluray.h264.aac.2.05.1.dualricksz/O.Senhor.dos.Aneis.1978.1080p.BluRay.H264.AAC.2.0-5.1.DUAL-RICKSZ.mp4'
-      }]
-    }]
+  constructor(
+      private dataService: dataService,
+      private commService: CommunicationService,
+      private location: Location,
+      private route: ActivatedRoute) {
+    //this.course = this.location.getState() as CourseType
    }
-
-  ngOnInit(): void {
+   getCurrentModules( courseKey: string ) : void {
+    this.commService.requestCourse(this.courseKey).subscribe( 
+      (data : CourseType) =>{
+        console.log(data)
+        this.course = data
+      }
+    )
+  }
+   getCurrentCourse(courseKey: string) {
+    this.commService.requestModules(this.courseKey).subscribe( 
+      (data: Array<ModuleType>) =>{
+        console.log(data)
+        this.modules = data
+      }
+    )
   }
 
+  ngOnInit() {
+    this.route.queryParams.subscribe(
+      (params) => this.courseKey = params['courseId']
+      );
+      console.log(this.courseKey)
+    this.getCurrentCourse(this.courseKey)
+    this.getCurrentModules(this.courseKey)
+    }
 }

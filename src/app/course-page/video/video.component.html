@@ -1,7 +1,7 @@
 <app-cabecalho></app-cabecalho>
 <header>
-    <h1>Module Name</h1>
-    <h2>Como procrastinar</h2>
+    <h1>{{course.Title}}</h1>
+    <h2>{{lesson.title}}</h2>
 </header>
 <main>
 <vg-player class="player-curso">
@@ -9,13 +9,16 @@
         <source src="https://ia902908.us.archive.org/25/items/o.senhor.dos.aneis.1978.1080p.bluray.h264.aac.2.05.1.dualricksz/O.Senhor.dos.Aneis.1978.1080p.BluRay.H264.AAC.2.0-5.1.DUAL-RICKSZ.mp4" type="video/mp4">
     </video>
 </vg-player>
-<mat-accordion >
+
+<div class="modules"></div>
+<h2 id="modulesTitle">Módulos</h2>
+<mat-accordion>
     <mat-expansion-panel *ngFor="let module of modules">
         <mat-expansion-panel-header>
             <mat-panel-title>{{module.name}}</mat-panel-title>
         </mat-expansion-panel-header>
             <span *ngFor="let lesson of module.lessons">
-            <p id="lesson" routerLink="./aula" [state]="{currentLesson: lesson, modules: modules}" routerLinkActive="active" ariaCurrentWhenActive="page">{{lesson.title}}</p>
+            <p id="lesson" routerLink="./" [queryParams]="{'courseId': course.courseKey,'moduleId': module.moduleKey, 'lessonId': lesson.lessonKey}" routerLinkActive="active" ariaCurrentWhenActive="page">{{lesson.title}}</p>
             <mat-divider></mat-divider>
             </span>
         </mat-expansion-panel>

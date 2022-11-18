@@ -36,8 +36,9 @@ header #title{
 #description{
     font-size: large;
     text-overflow: ellipsis;
-    overflow: hidden;   
-    height: 200px;
+    overflow: hidden; 
+    height: fit-content;  
+    max-height: 200px;
 }
 hr {
     width: 100%;

@@ -27,6 +27,7 @@ export class CursoComponent implements OnInit {
 
   constructor(private dataService: dataService) {
     this.coursesList = this.dataService.getCourseList().pipe(
+      startWith([]),
       map((data) => {return data;})
     );
    }
@@ -35,9 +36,7 @@ export class CursoComponent implements OnInit {
     this.dataService.setCurentCourse(course)
   }
 
-  ngOnInit(
-    
-  ): void {
+  ngOnInit(){
   }
 
 }

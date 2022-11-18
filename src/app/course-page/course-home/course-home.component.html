@@ -8,14 +8,13 @@
     <p id="description">{{course.description}}</p>
     <hr>
 </header>
-
 <mat-accordion >
     <mat-expansion-panel *ngFor="let module of modules">
         <mat-expansion-panel-header>
             <mat-panel-title>{{module.name}}</mat-panel-title>
         </mat-expansion-panel-header>
             <span *ngFor="let lesson of module.lessons">
-            <p id="lesson" routerLink="./aula" [state]="{currentLesson: lesson, modules: modules}" routerLinkActive="active" ariaCurrentWhenActive="page">{{lesson.title}}</p>
+            <p id="lesson" routerLink="./aula" [queryParams]="{'courseId': course.courseKey,'moduleId': module.moduleKey, 'lessonId': lesson.lessonKey}" routerLinkActive="active" ariaCurrentWhenActive="page">{{lesson.title}}</p>
             <mat-divider></mat-divider>
             </span>
         </mat-expansion-panel>

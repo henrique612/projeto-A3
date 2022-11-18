@@ -30,7 +30,6 @@ export class dataService {
     }
 
     getCourseList(): Observable<Array<CourseType>> {
-        console.log(this.courses as Observable<Array<CourseType>>)
         return this.courses as Observable<Array<CourseType>>
     }
 
@@ -47,7 +46,6 @@ export class dataService {
     }
 
     setCourseList(newCourses: Array<CourseType>): void {
-        console.log(newCourses)
         this.courses.next(newCourses)
     }
 

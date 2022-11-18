@@ -12,10 +12,15 @@ export class CommunicationService {
     return this.http.get<Array<CourseType>>('assets/courses.json')
   }
 
- // requestModules(): Observable<Array<ModuleType>> {
- //   return this.http.get<Array<ModuleType>>('http://localhost:3000/api/courses/modules')
+  requestCourse( courseId: string ): Observable<CourseType> {
+    return this.http.get<CourseType>(`assets/course.json?courserId=${courseId}`)
+  }
+
+  requestModules(courseId: string): Observable<Array<ModuleType>> {
+    return this.http.get<Array<ModuleType>>(`assets/modules.json?courserId=${courseId}`)
+  }
+//  
  // }
-//
  // requestLessons(): Observable<Array<Lessons>> {
  //   return this.http.get<Array<Lessons>>('http://localhost:3000/api/courses/lessons')
  // }

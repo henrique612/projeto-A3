@@ -1,94 +1,60 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import {Location} from "@angular/common"
-import { ModuleType } from 'src/Types/Course';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CourseType, Lessons, ModuleType } from 'src/Types/Course';
+import { CommunicationService } from 'src/Services/communication.sevices';
+
 @Component({
   selector: 'app-video',
   templateUrl: './video.component.html',
   styleUrls: ['./video.component.css']
 })
 export class VideoComponent implements OnInit {
+    private courseKey: string = '';
+    private lessonKey: string = '';
+    private modulesKey: string = '';
+    course = {} as CourseType;
+    modules = [] as Array<ModuleType>
+    lesson = {} as Lessons;
 
-    modules: Array<ModuleType> = [{
-    courseKey: 'geagreaeg15',
-        moduleKey: '2151651651516',
-        name: 'Modulo1',
-    lessons: [{
-      lessonKey: 'fafewa51515',
-          moduleKey: '2151651651516',
-          title: 'Aula1',
-          commentKey: '15165egresgois',
-          videosource: 'https://ia902908.us.archive.org/25/items/o.senhor.dos.aneis.1978.1080p.bluray.h264.aac.2.05.1.dualricksz/O.Senhor.dos.Aneis.1978.1080p.BluRay.H264.AAC.2.0-5.1.DUAL-RICKSZ.mp4'
-    },
-    {
-      lessonKey: 'fae1515agewa',
-          moduleKey: '2151651651516',
-          title: 'Aula2',
-          commentKey: '15165egresgois',
-          videosource: 'https://ia902908.us.archive.org/25/items/o.senhor.dos.aneis.1978.1080p.bluray.h264.aac.2.05.1.dualricksz/O.Senhor.dos.Aneis.1978.1080p.BluRay.H264.AAC.2.0-5.1.DUAL-RICKSZ.mp4'
-    },{
-      lessonKey: '151f5aefaewf515',
-          moduleKey: '2151651651516',
-          title: 'Aula3',
-          commentKey: '15165egresgois',
-          videosource: 'https://ia902908.us.archive.org/25/items/o.senhor.dos.aneis.1978.1080p.bluray.h264.aac.2.05.1.dualricksz/O.Senhor.dos.Aneis.1978.1080p.BluRay.H264.AAC.2.0-5.1.DUAL-RICKSZ.mp4'
-    }]
-  },{
-    courseKey: 'geagreaeg15',
-        moduleKey: '2151651651516',
-        name: 'Modulo1',
-    'lessons': [{
-      lessonKey: 'fafewa51515',
-          moduleKey: '2151651651516',
-          title: 'Aula1',
-          commentKey: '15165egresgois',
-          videosource: 'https://ia902908.us.archive.org/25/items/o.senhor.dos.aneis.1978.1080p.bluray.h264.aac.2.05.1.dualricksz/O.Senhor.dos.Aneis.1978.1080p.BluRay.H264.AAC.2.0-5.1.DUAL-RICKSZ.mp4'
-    },
-    {
-      lessonKey: 'fae1515agewa',
-          moduleKey: '2151651651516',
-          title: 'Aula2',
-          commentKey: '15165egresgois',
-          videosource: 'https://ia902908.us.archive.org/25/items/o.senhor.dos.aneis.1978.1080p.bluray.h264.aac.2.05.1.dualricksz/O.Senhor.dos.Aneis.1978.1080p.BluRay.H264.AAC.2.0-5.1.DUAL-RICKSZ.mp4'
-    },{
-      lessonKey: '151f5aefaewf515',
-          moduleKey: '2151651651516',
-          title: 'Aula3',
-          commentKey: '15165egresgois',
-          videosource: 'https://ia902908.us.archive.org/25/items/o.senhor.dos.aneis.1978.1080p.bluray.h264.aac.2.05.1.dualricksz/O.Senhor.dos.Aneis.1978.1080p.BluRay.H264.AAC.2.0-5.1.DUAL-RICKSZ.mp4'
-    }]
-  },{
-    courseKey: 'geagreaeg15',
-        moduleKey: '2151651651516',
-        name: 'Modulo1',
-    'lessons': [{
-          lessonKey: 'fafewa51515',
-          moduleKey: '2151651651516',
-          title: 'Aula1',
-          commentKey: '15165egresgois',
-          videosource: 'https://ia902908.us.archive.org/25/items/o.senhor.dos.aneis.1978.1080p.bluray.h264.aac.2.05.1.dualricksz/O.Senhor.dos.Aneis.1978.1080p.BluRay.H264.AAC.2.0-5.1.DUAL-RICKSZ.mp4'
-    },
-    {
-        lessonKey: 'fae1515agewa',
-          moduleKey: '2151651651516',
-          title: 'Aula2',
-          commentKey: '15165egresgois',
-          videosource: 'https://ia902908.us.archive.org/25/items/o.senhor.dos.aneis.1978.1080p.bluray.h264.aac.2.05.1.dualricksz/O.Senhor.dos.Aneis.1978.1080p.BluRay.H264.AAC.2.0-5.1.DUAL-RICKSZ.mp4'
-    },{
-      lessonKey: '151f5aefaewf515',
-          moduleKey: '2151651651516',
-          title: 'Aula3',
-          commentKey: '15165egresgois',
-          videosource: 'https://ia902908.us.archive.org/25/items/o.senhor.dos.aneis.1978.1080p.bluray.h264.aac.2.05.1.dualricksz/O.Senhor.dos.Aneis.1978.1080p.BluRay.H264.AAC.2.0-5.1.DUAL-RICKSZ.mp4'
-    }]
-  }];
+  constructor(
+    private route: ActivatedRoute,
+    private commService: CommunicationService,
+    private router: Router) {
+    }
+    
+    getCurrentModules(courseKey: string, moduleKey: string) {
+      this.commService.requestModules(courseKey).subscribe( 
+        (data: Array<ModuleType>) =>{
+          this.modules = data
+          this.lesson = this.mapLesson(data, moduleKey)
+        }
+      )
+    }
 
-  constructor(private route: Location) {
-      //this.modules = this.route.getState() as ModuleType
+    getCurrentCourse(courseKey: string ) : void {
+      this.commService.requestCourse(courseKey).subscribe( 
+        (data : CourseType) =>{
+          this.course = data
+        }
+      )
+    }
+
+    mapLesson(modules: Array<ModuleType>, moduleKey: string): Lessons {
+      let filteredModule: ModuleType = modules.filter((module) => module.moduleKey === moduleKey)[0];
+      return filteredModule.lessons.filter((lesson) => lesson.lessonKey == this.lessonKey)[0]
     }
 
   ngOnInit(): void {
-    console.log(this.route.getState())
-  }
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.route.queryParams.subscribe(
+      (params) => {
+        this.courseKey = params['courseId']
+        this.lessonKey = params['lessonId']
+        this.modulesKey = params['moduleId']
+      }
+      );
+      this.getCurrentCourse(this.courseKey)
+      this.getCurrentModules(this.courseKey, this.modulesKey)
+    }
 
 }
