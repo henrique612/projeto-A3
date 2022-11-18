@@ -4,18 +4,17 @@ import {Subject, Observable, throwError} from "rxjs"
 import { Injectable } from '@angular/core';
 import { CommunicationService } from "./communication.sevices";
 
+@Injectable()
 export class dataService {
     constructor(
         private course: Subject<CourseType>,
         private modules: Subject<Array<ModuleType>>, 
         private lesson: Subject<Lessons>,
         private courses: Subject<Array<CourseType>>,
-        private serssionId: string,
+        //private serssionId: string,
         private user: Subject<UserType>,
-        private config: any,
-        private comService: CommunicationService
+        //private config: any,
         ) {
-            this.comService.requestCourses().subscribe((data: Array<CourseType>) => this.setCourseList(data))
         }
 
     getCurrentCourse(): Observable<CourseType> {
@@ -28,6 +27,11 @@ export class dataService {
 
     getCurrentModules(): Observable<Array<ModuleType>> {
         return this.modules as Observable<Array<ModuleType>>
+    }
+
+    getCourseList(): Observable<Array<CourseType>> {
+        console.log(this.courses as Observable<Array<CourseType>>)
+        return this.courses as Observable<Array<CourseType>>
     }
 
     getCurrentLesson(): Observable<Lessons> {
@@ -43,6 +47,7 @@ export class dataService {
     }
 
     setCourseList(newCourses: Array<CourseType>): void {
+        console.log(newCourses)
         this.courses.next(newCourses)
     }
 

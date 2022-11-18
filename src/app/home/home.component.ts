@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CommunicationService } from 'src/Services/communication.sevices';
+import { dataService } from 'src/Services/data.service';
+import { CourseType } from 'src/Types/Course';
 
 @Component({
   selector: 'app-home',
@@ -7,11 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  specializationList: Array<string> = ['biomedicina', 'madmmdmedew', 'knkenfwnfw', 'jnfjknfjknwjknefjewaf']
+  constructor(
+      private commService: CommunicationService,
+      private dataService: dataService
+      ) {
+      this.commService.requestCourses().subscribe( 
+        (data : Array<CourseType>) =>{ 
+          this.setCourseList(data)
+        }
+        )
+   }
 
-  constructor() { }
+  setCourseList(courses: Array<CourseType>): void {
+    this.dataService.setCourseList(courses)
+  }
 
   ngOnInit(): void {
   }
+
 
 }

@@ -1,4 +1,4 @@
-<ngu-carousel #myCarousel [inputs]="carouselTileConfig" [dataSource]="this.courseList | async">
+<ngu-carousel #myCarousel [inputs]="carouselTileConfig" [dataSource]="this.coursesList | async">
     <button mat-icon-button NguCarouselPrev class="leftRs" [style.opacity]="myCarousel.isFirst ? 0.5 : 1" >
         <mat-icon>navigate_before</mat-icon>
     </button>
@@ -21,4 +21,3 @@
         <mat-icon>navigate_next</mat-icon>
       </button>
 </ngu-carousel>
-

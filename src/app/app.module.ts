@@ -16,7 +16,7 @@ import {VgOverlayPlayModule} from '@videogular/ngx-videogular/overlay-play';
 import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
 import { NguCarouselModule } from '@ngu/carousel';
 import { HttpClientModule } from '@angular/common/http';
-
+import { Subject } from 'rxjs'
 
 import { CursoComponent } from './curso-card/curso.component';
 import { CabecalhoComponent } from './cabecalho/cabecalho.component';
@@ -24,6 +24,9 @@ import { VideoComponent } from './course-page/video/video.component';
 import { HomeComponent } from './home/home.component';
 import { CoursePageComponent } from './course-page/course-page.component';
 import { CourseHomeComponent } from "./course-page/course-home/course-home.component"
+import { CommunicationService } from 'src/Services/communication.sevices';
+import { dataService } from 'src/Services/data.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +54,7 @@ import { CourseHomeComponent } from "./course-page/course-home/course-home.compo
     MatDividerModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [CommunicationService,dataService,Subject],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

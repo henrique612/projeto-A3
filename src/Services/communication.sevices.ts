@@ -9,15 +9,15 @@ export class CommunicationService {
   constructor(private http: HttpClient) { }
   
   requestCourses(): Observable<Array<CourseType>> {
-    return this.http.get<Array<CourseType>>('http://localhost:3000/api/courses/get')
+    return this.http.get<Array<CourseType>>('assets/courses.json')
   }
 
-  requestModules(): Observable<Array<ModuleType>> {
-    return this.http.get<Array<ModuleType>>('http://localhost:3000/api/courses/modules')
-  }
-
-  requestLessons(): Observable<Array<Lessons>> {
-    return this.http.get<Array<Lessons>>('http://localhost:3000/api/courses/lessons')
-  }
+ // requestModules(): Observable<Array<ModuleType>> {
+ //   return this.http.get<Array<ModuleType>>('http://localhost:3000/api/courses/modules')
+ // }
+//
+ // requestLessons(): Observable<Array<Lessons>> {
+ //   return this.http.get<Array<Lessons>>('http://localhost:3000/api/courses/lessons')
+ // }
 
 }
