@@ -40,8 +40,8 @@ export class VideoComponent implements OnInit {
     }
 
     mapLesson(modules: Array<ModuleType>, moduleKey: string): Lessons {
-      let filteredModule: ModuleType = modules.filter((module) => module.moduleKey === moduleKey)[0];
-      return filteredModule.lessons.filter((lesson) => lesson.lessonKey == this.lessonKey)[0]
+      let filteredModule: ModuleType = modules.filter((module) => module.moduleId === moduleKey)[0];
+      return filteredModule.lessons.filter((lesson) => lesson.lessonId == this.lessonKey)[0]
     }
 
   ngOnInit(): void {

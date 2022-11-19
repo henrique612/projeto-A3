@@ -1,33 +1,23 @@
 export interface CourseType{
-    courseKey: string,
+    id: string,
     author : string,
     image : string,
     avatarAuthor : string,
     description : string,
     specialization : Array<string>,
-    Title : string,
+    title : string,
 }
 
 export interface ModuleType {
-    courseKey: string,
-    moduleKey: string,
+    courseId: string,
+    moduleId: string,
     name: string,
     lessons: Array<Lessons>
 }
 
 export interface Lessons{
-    lessonKey: string,
-    moduleKey: string,
+    lessonId: string,
+    moduleId: string,
     title: string,
-    commentKey: string,
     videosource: string
-}
-
-export interface CommentType {
-    commentKey: string,
-    lessonKey: string,
-    autorName: string,
-    comment: string,
-    likes: number,
-    dislikes: number
 }

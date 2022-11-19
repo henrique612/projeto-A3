@@ -2,7 +2,7 @@ import { Component, OnInit,ChangeDetectionStrategy } from '@angular/core';
 import { NguCarouselConfig } from '@ngu/carousel';
 import { of, Observable } from 'rxjs';
 import { map, startWith, take } from 'rxjs/operators';
-import { dataService } from 'src/Services/data.service';
+import { CommunicationService } from 'src/Services/communication.sevices';
 import { CourseType } from 'src/Types/Course';
 
 @Component({
@@ -25,16 +25,12 @@ export class CursoComponent implements OnInit {
     animation: 'lazy'
   };
 
-  constructor(private dataService: dataService) {
-    this.coursesList = this.dataService.getCourseList().pipe(
+  constructor(private commService: CommunicationService) {
+    this.coursesList = this.commService.requestCourses().pipe(
       startWith([]),
       map((data) => {return data;})
     );
    }
-
-  saveCurrentCourse(course: CourseType): void {
-    this.dataService.setCurentCourse(course)
-  }
 
   ngOnInit(){
   }

@@ -6,9 +6,9 @@ main{
     height: 60%;
 }
 .player-curso {
-    width: 61%;
-    float: left;
-    margin-right: 5%;
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
 }
 
 .player-curso video{

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseType, ModuleType } from 'src/Types/Course';
 import {Location} from "@angular/common"
-import { dataService } from 'src/Services/data.service';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { CommunicationService } from 'src/Services/communication.sevices';
@@ -18,7 +17,6 @@ export class CourseHomeComponent implements OnInit {
   modules: Array<ModuleType> = [];
 
   constructor(
-      private dataService: dataService,
       private commService: CommunicationService,
       private location: Location,
       private route: ActivatedRoute) {
@@ -33,7 +31,7 @@ export class CourseHomeComponent implements OnInit {
     )
   }
    getCurrentCourse(courseKey: string) {
-    this.commService.requestModules(this.courseKey).subscribe( 
+    this.commService.requestModules(courseKey).subscribe( 
       (data: Array<ModuleType>) =>{
         console.log(data)
         this.modules = data

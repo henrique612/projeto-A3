@@ -8,10 +8,10 @@
                 <div mat-card-avatar 
                 [style.background-image]="'url('+ item.avatarAuthor+')'" 
                 [style.background-size]="'cover'" ></div>
-                <mat-card-title>{{item.Title}}</mat-card-title>
-                <mat-card-subtitle>{{item.specialization}}</mat-card-subtitle>
+                <mat-card-title>{{item.title}}</mat-card-title>
+                <mat-card-subtitle>{{item.author}}</mat-card-subtitle>
             </mat-card-header>
-            <img mat-card-image [src]="item.image" routerLink="/curso" (click)="saveCurrentCourse(item)" [state]="item"  [queryParams]="{'courseId': item.courseKey}" routerLinkActive="active" ariaCurrentWhenActive="page">
+            <img mat-card-image [src]="item.image" routerLink="/curso"  [state]="item"  [queryParams]="{'courseId': item.id}" routerLinkActive="active" ariaCurrentWhenActive="page">
             <mat-card-content>
                 <p>{{item.description}}</p>
             </mat-card-content>

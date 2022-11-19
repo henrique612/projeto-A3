@@ -9,20 +9,18 @@ export class CommunicationService {
   constructor(private http: HttpClient) { }
   
   requestCourses(): Observable<Array<CourseType>> {
-    return this.http.get<Array<CourseType>>('assets/courses.json')
+    return this.http.get<Array<CourseType>>('http://localhost:8080/api/courses')
   }
 
   requestCourse( courseId: string ): Observable<CourseType> {
-    return this.http.get<CourseType>(`assets/course.json?courserId=${courseId}`)
+    return this.http.get<CourseType>(`http://localhost:8080/api/course/${courseId}`)
   }
 
   requestModules(courseId: string): Observable<Array<ModuleType>> {
     return this.http.get<Array<ModuleType>>(`assets/modules.json?courserId=${courseId}`)
   }
-//  
- // }
- // requestLessons(): Observable<Array<Lessons>> {
- //   return this.http.get<Array<Lessons>>('http://localhost:3000/api/courses/lessons')
- // }
 
+  login(crm: string): Observable<string>{
+    return this.http.post<string>(`http://localhost:8080/api/login`, {crm : '121345-65'})
+  }
 }

@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDividerModule} from '@angular/material/divider';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import {VgCoreModule} from '@videogular/ngx-videogular/core';
 import {VgControlsModule} from '@videogular/ngx-videogular/controls';
@@ -16,7 +17,6 @@ import {VgOverlayPlayModule} from '@videogular/ngx-videogular/overlay-play';
 import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
 import { NguCarouselModule } from '@ngu/carousel';
 import { HttpClientModule } from '@angular/common/http';
-import { Subject } from 'rxjs'
 
 import { CursoComponent } from './curso-card/curso.component';
 import { CabecalhoComponent } from './cabecalho/cabecalho.component';
@@ -25,7 +25,8 @@ import { HomeComponent } from './home/home.component';
 import { CoursePageComponent } from './course-page/course-page.component';
 import { CourseHomeComponent } from "./course-page/course-home/course-home.component"
 import { CommunicationService } from 'src/Services/communication.sevices';
-import { dataService } from 'src/Services/data.service';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,9 @@ import { dataService } from 'src/Services/data.service';
     VideoComponent,
     HomeComponent,
     CoursePageComponent,
-    CourseHomeComponent
+    CourseHomeComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -52,9 +55,10 @@ import { dataService } from 'src/Services/data.service';
     VgCoreModule,
     MatExpansionModule,
     MatDividerModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule
   ],
-  providers: [CommunicationService,dataService,Subject],
+  providers: [CommunicationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

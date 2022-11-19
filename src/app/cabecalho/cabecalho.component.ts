@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-cabecalho',
@@ -7,11 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CabecalhoComponent implements OnInit {
   isLogged: Boolean = false;
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
   login(): void {
-    this.isLogged = true
+        const dialogConfig = new MatDialogConfig();
+
+        dialogConfig.disableClose = true;
+        dialogConfig.autoFocus = true;
+
+        this.dialog.open(LoginComponent, dialogConfig);
   }
 }
