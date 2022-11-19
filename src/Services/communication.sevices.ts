@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { CourseType, Lessons, ModuleType } from 'src/Types/Course';
@@ -21,11 +21,11 @@ export class CommunicationService {
     return this.http.get<Array<ModuleType>>(`assets/modules.json?courserId=${courseId}`)
   }
 
-  login(crm: string): Observable<string>{
-    return this.http.post<string>(`http://localhost:8080/api/login`, {crm : crm})
+  login(crm: string) {
+    return this.http.post(`http://localhost:8080/api/login`, {crm : crm})
   }
 
-  register(user:UserType): Observable<string>{
-    return this.http.put<string>(`http://localhost:8080/api/register`, user)
+  register(user:UserType){
+    return this.http.put(`http://localhost:8080/api/register`, user)
   }
 }

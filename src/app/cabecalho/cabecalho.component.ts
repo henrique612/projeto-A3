@@ -19,6 +19,8 @@ export class CabecalhoComponent implements OnInit {
         dialogConfig.disableClose = true;
         dialogConfig.autoFocus = true;
 
+        dialogConfig.width= '45%'
+
         this.dialog.open(LoginComponent, dialogConfig);
   }
 }

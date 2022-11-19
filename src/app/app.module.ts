@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatToolbarModule } from '@angular/material/toolbar'; 
 import { MatCardModule } from '@angular/material/card'
@@ -56,7 +57,9 @@ import { RegisterComponent } from './register/register.component';
     MatExpansionModule,
     MatDividerModule,
     HttpClientModule,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule, 
+    ReactiveFormsModule
   ],
   providers: [CommunicationService],
   bootstrap: [AppComponent]
