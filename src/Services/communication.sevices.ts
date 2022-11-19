@@ -25,7 +25,7 @@ export class CommunicationService {
     return this.http.post(`http://localhost:8080/api/login`, {crm : crm})
   }
 
-  register(user:UserType){
-    return this.http.put(`http://localhost:8080/api/register`, user)
+  register(user:UserType) {
+    return this.http.post(`http://localhost:8080/api/user`, user)
   }
 }
