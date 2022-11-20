@@ -21,6 +21,9 @@ export class CabecalhoComponent implements OnInit {
 
         dialogConfig.width= '45%'
 
-        this.dialog.open(LoginComponent, dialogConfig);
+        const dialogRef = this.dialog.open(LoginComponent, dialogConfig);
+        dialogRef.afterClosed().subscribe(
+          data => this.isLogged = data
+        )
   }
 }

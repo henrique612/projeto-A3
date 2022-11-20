@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDividerModule} from '@angular/material/divider';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 import {VgCoreModule} from '@videogular/ngx-videogular/core';
 import {VgControlsModule} from '@videogular/ngx-videogular/controls';
@@ -61,7 +62,7 @@ import { RegisterComponent } from './register/register.component';
     FormsModule, 
     ReactiveFormsModule
   ],
-  providers: [CommunicationService],
+  providers: [CommunicationService,MatSnackBar],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
