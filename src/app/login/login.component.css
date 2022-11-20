@@ -22,6 +22,10 @@ body{
 
 }
 
+.login-card-footer p{
+    color: black;
+}
+
 .login-card a{
     text-decoration: nome;
     color: #35339a;
@@ -52,14 +56,6 @@ margin-bottom: .5rem;
     position: relative;
 }
 
-.login-card .form-item .form-item-icon{
-    position: absolute;
-    top: .82rem;
-    left: 1.4rem;
-    font-size: 1.3rem;
-    opacity: .4;
-}
-
 .login-card-form .checkbox{
     display: flex;
     align-items: center;
@@ -87,8 +83,7 @@ margin-bottom: .5rem;
     border: nome;
     outline: nome;
     background: rgba(255,255,255, .3);
-    padding: 1rem 1.5rem;
-    padding-left: calc(1rem * 3.5);
+    padding: 1rem 1.4rem;
     border-radius: 100px;
     width: 100%;
     transition: backgroung .5s;

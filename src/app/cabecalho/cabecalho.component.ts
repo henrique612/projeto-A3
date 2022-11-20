@@ -19,7 +19,6 @@ export class CabecalhoComponent implements OnInit {
         dialogConfig.disableClose = true;
         dialogConfig.autoFocus = true;
 
-        dialogConfig.width= '45%'
 
         const dialogRef = this.dialog.open(LoginComponent, dialogConfig);
         dialogRef.afterClosed().subscribe(

@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private _snackBar: MatSnackBar
     ) {
+      this.dialogRef.disableClose = true;
       this.userForm = this.fb.group({
         crm: '',
         password: ''
@@ -42,14 +43,6 @@ export class LoginComponent implements OnInit {
 
   close(): void {
     this.dialogRef.close()
-  }
-
-  setCrm(event: any) {
-    this.crm = event.target.value;
-  }
-
-  setPassword(event: any) {
-    this.password = event.target.value;
   }
 
   login(): void {

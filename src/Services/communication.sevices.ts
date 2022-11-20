@@ -10,11 +10,11 @@ export class CommunicationService {
   constructor(private http: HttpClient) { }
   
   requestCourses(): Observable<Array<CourseType>> {
-    return this.http.get<Array<CourseType>>('http://localhost:8080/api/courses')
+    return this.http.get<Array<CourseType>>('http://localhost:8080/courses')
   }
 
   requestCourse( courseId: string ): Observable<CourseType> {
-    return this.http.get<CourseType>(`http://localhost:8080/api/course/${courseId}`)
+    return this.http.get<CourseType>(`http://localhost:8080/course/${courseId}`)
   }
 
   requestModules(courseId: string): Observable<Array<ModuleType>> {
@@ -22,7 +22,7 @@ export class CommunicationService {
   }
 
   login(crm: string) {
-    return this.http.post(`http://localhost:8080/api/login?crm=${crm}`,{"crm": crm}, {observe: "response"})
+    return this.http.post('http://localhost:8080/login', {"crm": crm}, {observe: "response"})
   }
 
   register(user:UserType) {
