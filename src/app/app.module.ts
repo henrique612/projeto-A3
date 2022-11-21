@@ -29,6 +29,7 @@ import { CourseHomeComponent } from "./course-page/course-home/course-home.compo
 import { CommunicationService } from 'src/Services/communication.sevices';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { RegisterComponent } from './register/register.component';
     CoursePageComponent,
     CourseHomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

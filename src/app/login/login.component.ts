@@ -16,7 +16,6 @@ export class LoginComponent implements OnInit {
   public userForm:FormGroup; 
   crm: string= '';
 
-  password: string= '';
 
   constructor(
     private commservice : CommunicationService,
@@ -25,9 +24,9 @@ export class LoginComponent implements OnInit {
     private _snackBar: MatSnackBar
     ) {
       this.dialogRef.disableClose = true;
+      
       this.userForm = this.fb.group({
         crm: '',
-        password: ''
       });
   
      }
@@ -47,13 +46,12 @@ export class LoginComponent implements OnInit {
 
   login(): void {
     this.crm = this.userForm.get('crm')?.value; 
-    this.password = this.userForm.get('password')?.value; 
     this.commservice.login(this.crm)
     .pipe (catchError(err =>  this.handleError(err)))
     .subscribe(
       (res) => {
         if (res.status == 200) {
-          this.dialogRef.close(true);
+          this.dialogRef.close({"user":res.body,"logged": true});
         }
       })
   }

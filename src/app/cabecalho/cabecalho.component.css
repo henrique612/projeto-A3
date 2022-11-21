@@ -1,16 +1,25 @@
 .navMenu {
-    background-color: aquamarine;
+    background-color: #5F7DF1;
+    opacity: 60%;
     height: fit-content;
 }
 .navMenu #name {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 100%;
-    color: rgb(1, 37, 105);
+    font-family: 'Podkova';
+    font-size: 200%;
+    color: rgb(7, 0, 39);
     width: fit-content;
 }
-.navMenuActions #accessButton {
-    width: 45%;
+.navMenuActions .accessButton {
+    text-align: left;
+    width: 50%;
+    color: rgb(7, 0, 39);
+    border-radius: 10px;
 }
+.mat-success {
+    background-color: #849cfc;
+    color: #fff;
+}
+
 #avatar-user-image {
     margin-left: auto;
     height: 50px;
@@ -25,6 +34,8 @@
     float: left;
     margin-top: 1%;
     width: fit-content;
-    height: fit-content;
-    
+    height: fit-content;   
+}
+mat-toolbar{
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
 }

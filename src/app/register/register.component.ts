@@ -43,9 +43,7 @@ export class RegisterComponent implements OnInit {
     "gender" : this.userForm.get('gender')?.value,
     "crm" : this.userForm.get('crm')?.value,
     "password" : this.userForm.get('password')?.value} as UserType
-    this.commservice.register(user).subscribe(
-      (res) => console.log(res)
-    )
+    this.commservice.register(user).subscribe()
   }
 
 }

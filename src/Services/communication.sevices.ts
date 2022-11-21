@@ -21,11 +21,15 @@ export class CommunicationService {
     return this.http.get<Array<ModuleType>>(`assets/modules.json?courserId=${courseId}`)
   }
 
+  requestUser(id: string): Observable<UserType> {
+    return this.http.get<UserType>(`http://localhost:8080/user/${id}`)
+  }
+
   login(crm: string) {
     return this.http.post('http://localhost:8080/login', {"crm": crm}, {observe: "response"})
   }
 
   register(user:UserType) {
-    return this.http.post(`http://localhost:8080/api/user`, user)
+    return this.http.post(`http://localhost:8080/user`, user)
   }
 }

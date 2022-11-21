@@ -1,7 +1,8 @@
 .mat-expansion-panel{
   margin: 2%;
-  background-color:  white;
+  background-color:  #7D9ED999;
   height: fit-content;
+  border-radius: 20px;
 }
 mat-panel-title{
     padding: 1%;
@@ -15,7 +16,8 @@ mat-panel-title{
     font-size: large;
 }
 #lesson:hover {
-    background-color: rgb(190, 250, 230);
+    width: 100%;
+    color: rgb(0, 36, 59);
 }
 img{
     display: block;
@@ -34,6 +36,8 @@ header #title{
     font-size: xx-large;
 }
 #description{
+    padding-inline: 2%;
+    padding-bottom: 3%;
     font-size: large;
     text-overflow: ellipsis;
     overflow: hidden; 
@@ -42,4 +46,13 @@ header #title{
 }
 hr {
     width: 100%;
+}
+.description {
+    background-color: #7D9ED999;
+    width: 100%;
+    border-radius: 10px;
+}
+.description  #title{
+    padding-top: 1.5%;
+    padding-left: 2%;
 }

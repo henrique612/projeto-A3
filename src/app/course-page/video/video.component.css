@@ -40,17 +40,17 @@ main{
         float: right;
     }
     .mat-expansion-panel{
-        background-color:  white;
+        background-color:  #7D9ED999;
         height: fit-content;
         width: 100%;
     
       }
 }
 .mat-expansion-panel{
-    background-color:  white;
+    margin: 2%;
+    background-color:  #7D9ED999;
     height: fit-content;
-    width: 100%;
-
+    border-radius: 20px;
   }
   mat-panel-title{
       padding: 1%;
@@ -58,15 +58,15 @@ main{
       font-size: x-large;
   }
   #lesson {
-    color: black;
-    padding: 1%;
-    padding-left: 3%;
-    font-size: large;
-}
-#lesson:hover {
-    background-color: rgb(190, 250, 230);
-}
-
+      color: black;
+      padding: 1%;
+      padding-left: 3%;
+      font-size: large;
+  }
+  #lesson:hover {
+      width: 100%;
+      color: rgb(0, 36, 59);
+  }
 .modules {
     width: auto;
 }

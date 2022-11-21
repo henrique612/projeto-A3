@@ -18,7 +18,6 @@ export class CourseHomeComponent implements OnInit {
 
   constructor(
       private commService: CommunicationService,
-      private location: Location,
       private route: ActivatedRoute) {
     //this.course = this.location.getState() as CourseType
    }
