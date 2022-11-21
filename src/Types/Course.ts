@@ -16,7 +16,7 @@ export interface ModuleType {
 }
 
 export interface Lessons{
-    lessonId: string,
+    lessonKey: string,
     moduleId: string,
     title: string,
     videosource: string

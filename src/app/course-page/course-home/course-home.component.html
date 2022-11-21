@@ -1,4 +1,3 @@
-<app-cabecalho></app-cabecalho>
 <header>
     <h1 id="title">{{course.title}}</h1>
     <h3 id="title">by {{course.author}}</h3>
@@ -16,7 +15,7 @@
             <mat-panel-title>{{module.name}}</mat-panel-title>
         </mat-expansion-panel-header>
             <span *ngFor="let lesson of module.lessons">
-            <p id="lesson" routerLink="./aula" [queryParams]="{'courseId': course.id,'moduleId': module.moduleId, 'lessonId': lesson.lessonId}" routerLinkActive="active" ariaCurrentWhenActive="page">{{lesson.title}}</p>
+            <p id="lesson" routerLink="./aula" [queryParams]="{'courseId': course.id,'moduleId': module.moduleId, 'lessonId': lesson.lessonKey}" routerLinkActive="active" ariaCurrentWhenActive="page">{{lesson.title}}</p>
             <mat-divider></mat-divider>
             </span>
         </mat-expansion-panel>
